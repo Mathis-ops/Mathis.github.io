@@ -1,0 +1,485 @@
+<!-- ========================================= -->
+<!-- PORTFOLIO DE MATHIS GAULTIER -->
+<!-- VERSION CYBERSECURITE + NEIGE -->
+<!-- HTML + CSS + JAVASCRIPT -->
+<!-- TOUT EST COMMENTE -->
+<!-- ========================================= -->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <!-- Encodage des caractères -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive téléphone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page -->
+    <title>Portfolio - Mathis Gaultier</title>
+
+    <style>
+
+        /* ========================================= */
+        /* STYLE GENERAL */
+        /* ========================================= */
+
+        body {
+
+            /* Police */
+            font-family: Arial, sans-serif;
+
+            /* Retire les marges */
+            margin: 0;
+
+            /* Retire les espacements */
+            padding: 0;
+
+            /* Couleur du texte */
+            color: white;
+
+            /* Fond cyber sombre */
+            background:
+                linear-gradient(to bottom right,
+                    #0f0f0f,
+                    #1a1a1a,
+                    #2b1b12);
+
+            /* Empêche le scroll horizontal */
+            overflow-x: hidden;
+
+            /* Hauteur minimum */
+            min-height: 100vh;
+        }
+
+        /* ========================================= */
+        /* GRILLE CYBER EN FOND */
+        /* ========================================= */
+
+        body::before {
+
+            /* Obligatoire */
+            content: "";
+
+            /* Position fixe */
+            position: fixed;
+
+            /* Taille complète */
+            width: 100%;
+            height: 100%;
+
+            /* Placement */
+            top: 0;
+            left: 0;
+
+            /* Grille transparente */
+            background-image:
+                linear-gradient(rgba(255, 140, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 140, 0, 0.05) 1px, transparent 1px);
+
+            /* Taille de la grille */
+            background-size: 40px 40px;
+
+            /* Passe derrière tout */
+            z-index: -2;
+        }
+
+        /* ========================================= */
+        /* MENU */
+        /* ========================================= */
+
+        nav {
+
+            /* Alignement horizontal */
+            display: flex;
+
+            /* Espace entre les éléments */
+            justify-content: space-between;
+
+            /* Centre verticalement */
+            align-items: center;
+
+            /* Couleur du menu */
+            background-color: rgba(20, 20, 20, 0.9);
+
+            /* Espacement */
+            padding: 20px 50px;
+
+            /* Petit effet flou */
+            backdrop-filter: blur(5px);
+
+            /* Bordure */
+            border-bottom: 1px solid rgba(255, 140, 0, 0.2);
+        }
+
+        /* Logo */
+        .logo {
+
+            font-size: 28px;
+            font-weight: bold;
+            color: #d17b36;
+
+            /* Glow orange */
+            text-shadow: 0px 0px 10px rgba(209, 123, 54, 0.7);
+        }
+
+        /* Liste menu */
+        nav ul {
+
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        /* Liens */
+        nav ul li a {
+
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        /* Hover */
+        nav ul li a:hover {
+
+            color: #d17b36;
+        }
+
+        /* ========================================= */
+        /* SECTION PRINCIPALE */
+        /* ========================================= */
+
+        .hero {
+
+            /* Centre le texte */
+            text-align: center;
+
+            /* Espacement */
+            padding: 120px 20px;
+
+            /* Position relative */
+            position: relative;
+
+            z-index: 2;
+        }
+
+        /* ========================================= */
+        /* PHOTO */
+        /* ========================================= */
+
+        .photo {
+
+            width: 190px;
+            height: 190px;
+
+            /* Cercle */
+            border-radius: 50%;
+
+            /* Fond temporaire */
+            background-color: #222;
+
+            /* Centre */
+            margin: auto;
+
+            /* Bordure orange */
+            border: 4px solid #d17b36;
+
+            /* Centre le texte */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Couleur texte */
+            color: gray;
+
+            /* Glow */
+            box-shadow: 0px 0px 25px rgba(209, 123, 54, 0.5);
+        }
+
+        /* ========================================= */
+        /* TITRE PRINCIPAL */
+        /* ========================================= */
+
+        .hero h1 {
+
+            font-size: 60px;
+
+            color: #d17b36;
+
+            margin-top: 30px;
+
+            /* Glow cyber */
+            text-shadow: 0px 0px 20px rgba(209, 123, 54, 0.8);
+        }
+
+        /* ========================================= */
+        /* TEXTE */
+        /* ========================================= */
+
+        .hero p {
+
+            font-size: 20px;
+
+            max-width: 850px;
+
+            margin: auto;
+
+            line-height: 1.8;
+
+            color: #dddddd;
+        }
+
+        /* ========================================= */
+        /* BOUTONS */
+        /* ========================================= */
+
+        .buttons {
+
+            margin-top: 50px;
+        }
+
+        /* Boutons */
+        .buttons a {
+
+            /* Fond */
+            background-color: #d17b36;
+
+            /* Couleur texte */
+            color: white;
+
+            /* Retire soulignement */
+            text-decoration: none;
+
+            /* Espacement */
+            padding: 15px 28px;
+
+            /* Marge */
+            margin: 10px;
+
+            /* Coins arrondis */
+            border-radius: 10px;
+
+            /* Animation */
+            transition: 0.3s;
+
+            /* Affichage */
+            display: inline-block;
+
+            /* Glow */
+            box-shadow: 0px 0px 15px rgba(209, 123, 54, 0.5);
+        }
+
+        /* Hover boutons */
+        .buttons a:hover {
+
+            background-color: #ff9f50;
+
+            transform: scale(1.08);
+        }
+
+        /* ========================================= */
+        /* FOOTER */
+        /* ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background-color: rgba(20, 20, 20, 0.9);
+
+            border-top: 1px solid rgba(255, 140, 0, 0.2);
+        }
+
+        /* ========================================= */
+        /* NEIGE */
+        /* ========================================= */
+
+        .snowflake {
+
+            /* Position */
+            position: fixed;
+
+            /* Haut de la page */
+            top: -10px;
+
+            /* Couleur */
+            color: white;
+
+            /* Taille */
+            font-size: 10px;
+
+            /* Animation */
+            animation: fall linear infinite;
+
+            /* Transparence */
+            opacity: 0.8;
+
+            z-index: 1;
+        }
+
+        /* Animation chute */
+        @keyframes fall {
+
+            from {
+
+                transform: translateY(-10px);
+            }
+
+            to {
+
+                transform: translateY(110vh);
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ========================================= -->
+    <!-- MENU -->
+    <!-- ========================================= -->
+
+    <nav>
+
+        <!-- Logo -->
+        <div class="logo">
+            Mathis Gaultier
+        </div>
+
+        <!-- Menu -->
+        <ul>
+
+            <li><a href="#">Accueil</a></li>
+
+            <li><a href="#">À propos</a></li>
+
+            <li><a href="#">Projets</a></li>
+
+            <li><a href="#">Compétences</a></li>
+
+            <li><a href="#">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- ========================================= -->
+    <!-- ACCUEIL -->
+    <!-- ========================================= -->
+
+    <section class="hero">
+
+        <!-- Photo -->
+        <div class="photo">
+
+            PHOTO
+
+        </div>
+
+        <!-- Titre -->
+        <h1>Bienvenue sur mon Portfolio</h1>
+
+        <!-- Description -->
+        <p>
+
+            Bonjour, je m'appelle <strong>Mathis Gaultier</strong>,
+            j'ai 18 ans et je suis étudiant en
+            <strong>BUT Réseaux & Télécommunications</strong>
+            en première année à l'IUT de Valbonne.
+            <br><br>
+
+            Je suis quelqu’un d’extrêmement curieux qui aime toucher à tout.
+            Je m’intéresse particulièrement à la cybersécurité,
+            au sport ainsi qu’à l’art.
+            <br><br>
+
+            À travers ce portfolio, vous pourrez découvrir
+            mes projets, mes compétences et mon univers.
+
+        </p>
+
+        <!-- Boutons -->
+        <div class="buttons">
+
+            <a href="#">
+                Télécharger mon CV
+            </a>
+
+            <a href="#">
+                Voir mes projets
+            </a>
+
+            <a href="#">
+                Me contacter
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
+
+    <footer>
+
+        <p>
+            Téléphone : 06 43 31 83 05
+        </p>
+
+        <p>
+            LinkedIn : https://www.linkedin.com/in/mathis-gaultier-69ab053b7?utm_source=share_via&utm_content=profile&utm_medium=member_android
+        </p>
+
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT NEIGE -->
+    <!-- ========================================= -->
+
+    <script>
+
+        /* ========================================= */
+        /* CREATION DES FLOCONS */
+        /* ========================================= */
+
+        for (let i = 0; i < 120; i++) {
+
+            /* Création d'un flocon */
+            let snowflake = document.createElement("div");
+
+            /* Ajoute la classe */
+            snowflake.classList.add("snowflake");
+
+            /* Symbole du flocon */
+            snowflake.innerHTML = "•";
+
+            /* Position horizontale aléatoire */
+            snowflake.style.left = Math.random() * 100 + "vw";
+
+            /* Taille aléatoire */
+            snowflake.style.fontSize =
+                Math.random() * 10 + 5 + "px";
+
+            /* Durée aléatoire */
+            snowflake.style.animationDuration =
+                Math.random() * 5 + 5 + "s";
+
+            /* Transparence aléatoire */
+            snowflake.style.opacity =
+                Math.random();
+
+            /* Ajoute le flocon dans la page */
+            document.body.appendChild(snowflake);
+        }
+
+    </script>
+
+</body>
+
+<!-- </html> -->

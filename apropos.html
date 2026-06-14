@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos – Mathis Gaultier</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080b10;
+    --surface: #0f1419;
+    --surface2: #161d27;
+    --border: rgba(179,100,50,0.25);
+    --accent: #e07830;
+    --accent2: #c85a18;
+    --accent-glow: rgba(224,120,48,0.12);
+    --text: #e8edf2;
+    --muted: #8a96a4;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Outfit', Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:var(--sans);overflow-x:hidden;min-height:100vh;
+  }
+  body::before{
+    content:'';position:fixed;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events:none;z-index:0;opacity:0.4;
+  }
+  .grid-bg{
+    position:fixed;inset:0;z-index:0;
+    background-image:linear-gradient(rgba(179,100,50,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(179,100,50,0.04) 1px,transparent 1px);
+    background-size:60px 60px;pointer-events:none;
+  }
+
+  nav{
+    position:sticky;top:0;width:100%;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 40px;
+    background:rgba(8,11,16,0.85);backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-brand{font-family:var(--mono);font-size:0.85rem;color:var(--accent);letter-spacing:0.05em}
+  .nav-brand span{color:var(--muted)}
+  nav a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:0.05em;text-transform:uppercase;transition:color 0.2s}
+  nav a:hover{color:var(--accent)}
+
+  .page{max-width:900px;margin:0 auto;padding:80px 24px 100px;position:relative;z-index:1}
+
+  .breadcrumb{
+    font-family:var(--mono);font-size:0.72rem;
+    color:var(--muted);margin-bottom:48px;
+  }
+  .breadcrumb a{color:var(--accent);text-decoration:none}
+  .breadcrumb a:hover{text-decoration:underline}
+
+  .page-header{margin-bottom:64px}
+  .page-header .label{
+    font-family:var(--mono);font-size:0.72rem;color:var(--accent);
+    letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;
+  }
+  .page-header h1{
+    font-size:clamp(2rem,5vw,3.5rem);font-weight:700;
+    letter-spacing:-0.02em;line-height:1.1;margin-bottom:20px;
+  }
+  .page-header h1 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--accent),#f0a060);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .divider{width:60px;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+
+  .about-layout{
+    display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;
+    margin-bottom:64px;
+  }
+  .about-text p{
+    color:var(--muted);line-height:1.85;font-size:0.97rem;margin-bottom:20px;
+  }
+  .about-text p:last-child{margin-bottom:0}
+  .about-text strong{color:var(--accent);font-weight:600}
+
+  .sidebar{}
+  .sidebar-card{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:14px;padding:24px;margin-bottom:20px;
+  }
+  .sidebar-card h4{
+    font-family:var(--mono);font-size:0.7rem;color:var(--accent);
+    letter-spacing:0.15em;text-transform:uppercase;margin-bottom:16px;
+  }
+  .sidebar-item{
+    display:flex;align-items:flex-start;gap:10px;
+    margin-bottom:14px;font-size:0.85rem;color:var(--muted);
+  }
+  .sidebar-item .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--accent);flex-shrink:0;margin-top:6px;
+  }
+
+  .quote-block{
+    background:var(--surface);border:1px solid var(--border);
+    border-left:3px solid var(--accent);
+    border-radius:0 14px 14px 0;
+    padding:28px 32px;
+    margin-top:48px;
+  }
+  .quote-block blockquote{
+    font-size:1.05rem;line-height:1.75;
+    color:var(--text);font-style:italic;
+  }
+  .quote-block cite{
+    display:block;margin-top:16px;
+    font-family:var(--mono);font-size:0.72rem;
+    color:var(--accent);letter-spacing:0.1em;font-style:normal;
+  }
+
+  .goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+  .goal-card{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:12px;padding:20px;
+    transition:all 0.2s;
+  }
+  .goal-card:hover{border-color:var(--accent);background:var(--surface2)}
+  .goal-card .goal-icon{font-size:1.5rem;margin-bottom:10px}
+  .goal-card h4{font-size:0.9rem;font-weight:600;margin-bottom:6px;color:var(--text)}
+  .goal-card p{font-size:0.82rem;color:var(--muted);line-height:1.6}
+
+  @media(max-width:768px){
+    .about-layout{grid-template-columns:1fr}
+    .goals-grid{grid-template-columns:1fr}
+    nav{padding:14px 20px}
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<nav>
+  <div class="nav-brand"><span>~/</span>mathis-gaultier</div>
+  <a href="portfolio_sae25.html">← Retour à l'accueil</a>
+</nav>
+
+<div class="page">
+  <div class="breadcrumb"><a href="portfolio_sae25.html">Accueil</a> / À propos</div>
+
+  <div class="page-header">
+    <p class="label">// Qui suis-je ?</p>
+    <h1>À propos de <em>moi</em></h1>
+    <div class="divider"></div>
+  </div>
+
+  <div class="about-layout">
+    <div class="about-text">
+      <p>Depuis toujours, j'ai été quelqu'un de très <strong>curieux</strong>. J'aime comprendre comment les choses fonctionnent, apprendre par moi-même et découvrir constamment de nouveaux domaines.</p>
+      <p>Cette curiosité m'a naturellement poussé vers <strong>l'informatique et l'électronique</strong>, deux univers qui me passionnent depuis plusieurs années.</p>
+      <p>J'ai choisi le <strong>BUT Réseaux &amp; Télécommunications</strong> afin d'approfondir mes connaissances techniques et découvrir davantage le monde de la cybersécurité, un domaine qui m'attire particulièrement.</p>
+      <p>Ce que j'aime dans ce domaine, c'est qu'il y a toujours quelque chose à apprendre. J'apprécie apprendre seul, chercher des solutions par moi-même et <strong>persévérer jusqu'à réellement comprendre</strong> un problème.</p>
+      <p>En dehors de l'informatique, je vais régulièrement à la <strong>salle de musculation</strong> et je m'intéresse beaucoup à l'anatomie humaine. J'aime également <strong>écrire des poèmes</strong>, ce qui me permet d'exprimer un côté plus créatif et artistique.</p>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <h4>Formation</h4>
+        <div class="sidebar-item"><div class="dot"></div><div>BUT Réseaux &amp; Télécommunications</div></div>
+        <div class="sidebar-item"><div class="dot"></div><div>IUT de Valbonne</div></div>
+      </div>
+      <div class="sidebar-card">
+        <h4>Centres d'intérêt</h4>
+        <div class="sidebar-item"><div class="dot"></div><div>Cybersécurité</div></div>
+        <div class="sidebar-item"><div class="dot"></div><div>Musculation &amp; anatomie</div></div>
+        <div class="sidebar-item"><div class="dot"></div><div>Écriture &amp; poésie</div></div>
+        <div class="sidebar-item"><div class="dot"></div><div>Électronique</div></div>
+      </div>
+      <div class="sidebar-card">
+        <h4>Contact</h4>
+        <div class="sidebar-item"><div class="dot"></div><div>06 43 31 83 05</div></div>
+        <div class="sidebar-item"><div class="dot"></div><div><a href="https://www.linkedin.com/in/mathis-gaultier-69ab053b7" target="_blank" style="color:var(--accent)">LinkedIn</a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="goals-grid">
+    <div class="goal-card">
+      
+      <h4>Cybersécurité</h4>
+      <p>Analyser, protéger et tester la sécurité des systèmes et réseaux.</p>
+    </div>
+    <div class="goal-card">
+      
+      <h4>Technicien Réseaux</h4>
+      <p>Concevoir et administrer des infrastructures réseau fiables et sécurisées.</p>
+    </div>
+    <div class="goal-card">
+      
+      <h4>Apprentissage continu</h4>
+      <p>Toujours chercher à comprendre, expérimenter et aller plus loin.</p>
+    </div>
+    <div class="goal-card">
+      
+      <h4>Esprit d'équipe</h4>
+      <p>Collaborer, partager et progresser ensemble sur des projets techniques.</p>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <blockquote>
+      "La curiosité a toujours été ma plus grande motivation : comprendre, apprendre et découvrir font partie de ce qui me pousse à avancer chaque jour."
+    </blockquote>
+    <cite>— Mathis Gaultier</cite>
+  </div>
+</div>
+</body>
+</html>
